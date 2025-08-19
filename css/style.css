@@ -1,0 +1,99 @@
+
+html, body {
+    height: 100%; 
+    margin: 0;
+}
+body{
+	background-color: var(--background);
+	color: var(--roxo);	
+}
+main {
+    flex: 1; 
+}
+.submit {
+	background-color: var(--roxo);
+	border: 1px solid var(--roxo);
+	color: var(--background);
+}
+.submit:hover {
+	border: 2px solid var(--roxo);
+}
+h1{
+    font-size:x-large;
+}
+.no-auth{
+	color: var(--roxo);
+	background-color: var(--amarelo);
+}
+.navbar{
+	background-color: var(--background);
+	color: var(--roxo);
+    margin-bottom: 20px;
+	padding:20px;
+}
+.navbar-brand img {
+    max-height: 40px; 
+}
+
+.navbar-brand span {
+    font-size: 1.5rem;
+	color: var(--roxo);	
+}
+
+.navbar-nav .nav-link {
+    margin-right: 15px; 
+	color: var(--roxo-medio);
+}
+
+.navbar-nav .nav-link:hover {
+    text-decoration: underline; 
+	color: var(--roxo);
+}
+
+.btn-primary {
+    margin-left: auto;
+	background-color: var(--verde-claro); 
+	color: var(--roxo-medio);
+	border-color: var(--verde-claro);
+}
+
+.btn-primary:hover {
+    background-color: var(--amarelo); 
+	color: var(--roxo);
+	border-color: var(--roxo);
+}
+.carousel-item img{
+	width: 75%;
+	height:75%;
+	object-fit:contain;	
+}
+
+.carousel-item h5, .carousel-item p {
+    margin-top: 10px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: Var(--roxo);
+}
+
+footer a {
+    color: var(--roxo);   
+}
+
+
+footer .container {
+    max-width: 1140px; 
+}
+
+footer h5 {
+    margin-bottom: 1.5rem; 
+}
+
+footer .list-unstyled {
+    padding-left: 0; 
+}
+
+footer .list-unstyled li {
+    margin-bottom: 0.5rem;
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetShop</title>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body class="d-flex flex-column align-items-center">
+	<header class="container-fluid">
+		<nav class="navbar navbar-expand-lg shadow">
+			<a class="navbar-brand d-flex align-items-center" href="./index.html">
+				<img src="./assets/img9.webp" alt="PetShop Logo" class="rounded-4" />
+				<span class="ms-2">PetShop</span>
+			</a>
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" href="./servicos.html">Serviços</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./produtos.html">Produtos</a>
+					</li>
+				</ul>
+				<a href="./index.html">
+					<button class="btn btn-primary" type="button">Cadastro</button>
+				</a>
+			</div>
+		</nav>
+	</header>
+	<div id="toast-container" class="d-flex align-items-center justify-content-center" style="z-index: 11;"></div>
+		<div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+			<div class="toast-header">
+				<strong class="me-auto">Notificação</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+			<div class="toast-body">
+				Mensagem padrão.
+			</div>
+		</div>
+	</div>	
+    <main class="d-flex align-items-center justify-content-center">
+		<div class="container-fluid grid mx-auto p-5">
+			<div id="alert"></div>
+			<div class="row gap-4">
+				<div class="offset-1 col-5 d-flex align-items-center justify-content-center">
+					<img src="./assets/img5.webp" alt="imagem petshop" class="img-fluid rounded-4" />
+				</div>
+				<div class="col-5">
+					<div id="customerForm">
+						<h1>Cadastro de Cliente</h1>
+						<form id="customer-register">
+							<div class="mb-2">
+								<label for="customerName" class="form-label">Nome</label>
+								<input type="text" class="form-control" id="customerName" placeholder="Digite seu nome" required />
+							</div>
+							<div class="mb-2">
+								<label for="customerEmail" class="form-label">Email</label>
+								<input type="email" class="form-control" id="customerEmail" placeholder="Digite seu email" required />
+							</div>
+							<div class="mb-2">
+								<label for="customerPhone" class="form-label">Telefone</label>
+								<input type="tel" class="form-control" id="customerPhone" placeholder="Digite seu telefone" required />
+							</div>
+							<div class="mb-2">
+								<label for="customerStreet" class="form-label">Rua</label>
+								<input type="text" class="form-control" id="customerStreet" placeholder="Informe seu endereço" required />
+							</div>
+							<div class="mb-2">
+								<label for="customerNumber" class="form-label">Número</label>
+								<input type="text" class="form-control" id="customerNumber" placeholder="Informe o número da sua casa/apartamento" required />                            
+							</div>
+							<button type="button" class="btn btn-primary" onclick="saveCustomerData()">Próximo</button>
+						</form>
+					</div>
+					<div id="petForm" style="display: none;">
+						<h1>Cadastro do Pet</h1>
+						<form id="pet-register" class="needs-validation" novalidate>
+							<div class="mb-2">
+								<label class="form-label">Tipo</label>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="petType" id="typeDog" value="dog" onclick="toggleBreedOptions()" required />
+									<label class="form-check-label" for="typeDog">Cachorro</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="petType" id="typeCat" value="cat" onclick="toggleBreedOptions()" />
+									<label class="form-check-label" for="typeCat">Gato</label>
+								</div>
+							</div>
+							<div class="mb-2" id="breedSection" style="display: none;">
+								<label for="petBreed" class="form-label">Raça</label>
+								<select class="form-select" id="petBreed" required>
+									<option value="" disabled selected>Selecione a raça</option>                           
+								</select>								
+							</div>
+							<div class="mb-2">
+								<label class="form-label">Temperamento</label>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="temperamentFriendly" value="Amigável" />
+									<label class="form-check-label" for="temperamentFriendly">Amigável</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="temperamentAggressive" value="Agressivo" />
+									<label class="form-check-label" for="temperamentAggressive">Agressivo</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="temperamentShy" value="Tímido" />
+									<label class="form-check-label" for="temperamentShy">Tímido</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="temperamentPlayful" value="Brincalhão" />
+									<label class="form-check-label" for="temperamentPlayful">Brincalhão</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="temperamentLoyal" value="Leal" />
+									<label class="form-check-label" for="temperamentLoyal">Leal</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="temperamentCurious" value="Curioso" />
+									<label class="form-check-label" for="temperamentCurious">Curioso</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="temperamentEnergetic" value="Energético" />
+									<label class="form-check-label" for="temperamentEnergetic">Energético</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="behaviorDestructive" value="Destrutivo" />
+									<label class="form-check-label" for="behaviorDestructive">Destrutivo</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="behaviorAggressive" value="Agressivo" />
+									<label class="form-check-label" for="behaviorAggressive">Agressivo</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="behaviorNoisy" value="Barulhento" />
+									<label class="form-check-label" for="behaviorNoisy">Barulhento</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="behaviorEscapeArtist" value="Fugitivo" />
+									<label class="form-check-label" for="behaviorEscapeArtist">Fugitivo</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="behaviorUntrained" value="Não Treinado" />
+									<label class="form-check-label" for="behaviorUntrained">Não Treinado</label>
+								</div>
+							</div>
+							<div class="mb-2">
+								<label for="additionalInfo" class="form-label">Informações adicionais</label>
+								<textarea class="form-control" id="additionalInfo" rows="3" placeholder="Digite qualquer outra informação relevante"></textarea>
+							</div>
+							<button type="submit" class="btn btn-primary">Cadastrar Pet</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="py-4 align-items-end">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h5>Sobre Nós</h5>
+					<p>&copy; 2025 PetShop. Todos os direitos reservados.</p>
+					<p>Desenvolvido por <a href="https://www.linkedin.com/in/alessandra-cardozo-dos-santos-pcd-634529158/" target="_blank">Alessandra Cardozo 💟</a></p>
+				</div>
+				<div class="col-md-4">
+					<h5>Contato</h5>
+					<p>Email: <a href="mailto:contato@petshop.com" >daiane.deponti@edu.pucrs.br</a></p>
+					<p>Telefone: <a href="tel:+1234567890" target="_blank" >+1 234 567 890</a></p>
+				</div>
+				<div class="col-md-4">
+					<h5>Links de Navegação</h5>
+					<ul class="list-unstyled">
+						<li><a href="./index.html" >Home</a></li>
+						<li><a href="./servicos.html" >Serviços</a></li>
+						<li><a href="./produtos.html" >Produtos</a></li>
+						<li><a href="https://github.com/alessandra-cardozo" target="_blank" >Sobre</a></li>						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+	<script src="./js/index.js"></script>
+</body>
+</html>

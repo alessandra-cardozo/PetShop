@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Brinquedo",
+        "price": "R$5,00",
+        "image": "./assets/img1.webp"
+    },
+    {
+        "name": "Ração",
+        "price": "R$10,00",
+        "image": "./assets/img2.webp"
+    },
+    {
+        "name": "Brinquedo 2",
+        "price": "R$15,00",
+        "image": "./assets/img3.webp"
+    },
+    {
+        "name": "Ração úmida",
+        "price": "R$10,00",
+        "image": "./assets/img4.webp"
+    }
+]

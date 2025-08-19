@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Banho e Tosa",
+        "description": "Deixe seu pet sempre limpo e bem cuidado com nossos serviços completos de banho e tosa, garantindo saúde e conforto.",
+        "image": "./assets/img4.webp"
+    },    
+    {
+        "name": "Veterinário",
+        "description": "Oferecemos cuidados veterinários especializados para garantir a saúde e bem-estar do seu pet com atendimento de qualidade.",
+        "image": "./assets/img13.webp"
+    },
+    {
+        "name": "Tele-Busca",
+        "description": "Agende a coleta do seu pet com nosso serviço de tele-busca, proporcionando conveniência e segurança para você e seu animal.",
+        "image": "./assets/img11.webp"
+    }
+]
